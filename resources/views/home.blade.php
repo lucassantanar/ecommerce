@@ -18,7 +18,7 @@
                 <a class="nav-link" href="{{ route ('cadastrar') }}">Cadastrar</a>
             </div>
         </div>
-        <a href="#" class="btn btn-sm"><i class="fa fa-shopping-cart"></i></a>
+        <a href="#" class="btn btn-sm"><i class="fa fa-shopping-cart 5x"></i></a>
 </nav>
 
     <div class="container"> 
