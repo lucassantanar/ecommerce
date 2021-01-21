@@ -1,27 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorias</title>
-</head>
-<body>
-    <h2>Categorias</h2>
-
+@extends("layout")
+@section("conteudo")  
+    <div class="col-2">
     @if(isset($listaCategoria) && count($listaCategoria) > 0)
-        <ul>
+        <div class="list-group">
+            <a href="{{ route('categoria') }}" class="list-group-item list-group-item-action @if(0 == $idcategoria) active @endif">Todas</a>
             @foreach($listaCategoria as $cat)
-                <li>{{$cat->categoria}}</li>
+                <a href="{{ route('categoria_por_id', ['idcategoria' => $cat -> id]) }}" 
+                class="list-group-item list-group-item-action @if($cat->id == $idcategoria) active @endif">{{$cat->categoria}}</a></li>
             @endforeach
-        </ul>
+        </div>
     @endif
+    </div>
 
-    @if(isset($lista) && count($lista) > 0)
-        <ul>
-            @foreach($lista as $prod)
-                <li>{{$prod->nome}}</li>
-            @endforeach
-        </ul>
-    @endif
-</body>
-</html>
+    <div class="col-10">
+
+        @include("_produtos", ['lista' => $lista])
+    </div>
+@endsection
